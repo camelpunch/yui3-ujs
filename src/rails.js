@@ -158,6 +158,7 @@ YUI().use('node-base', 'node-event-delegate', 'io-form', 'rails-ujs', 'rails-eve
 			failure:  function(tid, response) { element.fire('ajax:failure', {}, response); }
 		};
 		
+                Y.io.header('X-CSRF-Token', Y.one('meta[name="csrf-token"]').get('content'));
 		Y.io(url, cfg);
 		
 		element.fire('ajax:after');
